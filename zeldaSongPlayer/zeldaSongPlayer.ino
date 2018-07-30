@@ -41,269 +41,144 @@
     }else{
       note1 = note;
       isPlay1 = true;
-      }
+    }
   }
+
   //this song plays after a correct song combination is played
   int correctSong(){
-     noTone(11);
-     tone(11, _D5, 325);
-     delay(100);
-     tone(11, _F5, 325);
-     delay(100);
-     tone(11, _A5, 325);
-     delay(100);
-     tone(11, _C6, 325);
-     delay(100);
-     tone(11, _D6, 850);
+      noTone(11);
+
+      int correctSongArray[5] = {_D5, _F5, _A5, _C6, _D6};
+      for(int i = 0;i < sizeof(correctSongArray);i++){
+          tone(11, correctSongArray[i], 325);
+          delay(100);
+      }
   }
-  int songChecker(){
-    //check for Saria's Song
-    if((note1=='d')&&(note2=='r')&&(note3=='l')&&(note4=='d')&&(note5=='r')&&(note6=='l')){
+
+  int playSariaSong(){
       //play correct sound effect
       correctSong();
       delay(500);
-      
+
       //play song
-      tone(11, _F4);
-      delay(250);
-      tone(11, _A4);
-      delay(250);
-      tone(11, _B4);
-      delay(500);
-      tone(11, _F4);
-      delay(250);
-      tone(11, _A4);
-      delay(250);
-      tone(11, _B4);
-      delay(500);
-      tone(11, _F4);
-      delay(250);
-      tone(11, _A4);
-      delay(250);
-      tone(11, _B4);
-      delay(250);
-      tone(11, _E5);
-      delay(250);
-      tone(11, _D5);
-      delay(500);
-      tone(11, _B4);
-      delay(250);
-      tone(11, _C5);
-      delay(250);
-      tone(11, _B4);
-      delay(250);
-      tone(11, _G4);
-      delay(250);
-      tone(11, _E4);
-      delay(625);
-      tone(11, _D4);
-      delay(250);
-      tone(11, _E4);
-      delay(250);
-      tone(11, _G4);
-      delay(250);
+      int sariaSongArray[] = {_F4, _A4, _B4, _F4, _A4, _B4, _F4, _A4, _B4, _E5, _D5, _B4, _C5, _B4, _G4, _E4, _D4, _E4, _G4};
+      int sariaSongDelay[] = {250, 250, 500, 250, 250, 500, 250, 250, 250, 250, 500, 250, 250, 250, 250, 625, 250, 250, 250};
+      for(int i = 0;i < sizeof(sariaSongArray);i++){
+          tone(11, sariaSongArray[i]);
+          delay(sariaSongDelay[i]);
+      }
       tone(11, _E4, 750);
       delay(750);
-      
-    }
-    //check for Zelda's Lullaby
-   else if((note1=='l')&&(note2=='u')&&(note3=='r')&&(note4=='l')&&(note5=='u')&&(note6=='r')){
+  }
+
+  int playZeldaLullaby(){
       //play correct sound effect
       correctSong();
       delay(500);
-      
+
       //play song
-      tone(11, _B4);
-      delay(875);
-      tone(11, _D5);
-      delay(500);
-      tone(11, _A4);
-      delay(1000);
-      tone(11, _B4);
-      delay(875);
-      tone(11, _D5);
-      delay(500);
-      tone(11, _A4);
-      delay(1000);
-      tone(11, _B4);
-      delay(875);
-      tone(11, _D5);
-      delay(500);
-      tone(11, _A5);
-      delay(1000);
-      tone(11, _G5);
-      delay(500);
-      tone(11, _D5);
+      int zeldaLullabyArray[] = {_B4, _D5, _A4, _B4, _D5, _A4, _B4, _D5, _A5, _G5, _D5, _C5, _B4};
+      int zeldaLullabyDelay[] = {875, 500, 1000, 875, 500, 1000, 875, 500, 1000, 500, 750, 250, 250};
+      for(int i = 0;i < sizeof(zeldaLullabyArray);i++){
+          tone(11, zeldaLullabyArray[i]);
+          delay(zeldaLullabyDelay[i]);
+      }
+      tone(11, _E4, 750);
       delay(750);
-      tone(11, _C5);
-      delay(250);
-      tone(11, _B4);
-      delay(250);
-      tone(11, _A4, 750);
-      delay(1250);
-    }
-    //check for the Sun's Song
-   else if((note1=='r')&&(note2=='d')&&(note3=='u')&&(note4=='r')&&(note5=='d')&&(note6=='u')){
+  }
+
+  int playSunSong(){
       //play correct sound effect
       correctSong();
       delay(500);
-      
+
       //play song
-      tone(11, _A4);
-      delay(250);
-      tone(11, _F4);
-      delay(125);
-      tone(11, _D5);
-      delay(625);
-      tone(11, _A4);
-      delay(250);
-      tone(11, _F4);
-      delay(125);
-      tone(11, _D5);
-      delay(500);
-      tone(11, _A4);
-      delay(125);
-      tone(11, _B4);
-      delay(125);
-      tone(11, _C5);
-      delay(125);
-      tone(11, _D5);
-      delay(125);
-      tone(11, _E5);
-      delay(125);
-      tone(11, _F5);
-      delay(125);
-      tone(11, _G5,750);
+      int sunSongArray[] = {_A4, _F4, _D5, _A4, _F4, _D5, _A4, _B4, _C5, _D5, _E5, _F5};
+      int sunSongDelay[] = {250, 250, 625, 250, 125, 500, 125, 125, 125, 125, 125, 125};
+      for(int i = 0;i < sizeof(sunSongArray);i++){
+          tone(11, sunSongArray[i]);
+          delay(sunSongDelay[i]);
+      }
+      tone(11, _G5, 750);
       delay(750);
-    }
-    //check for the Song of Storms
-   else if((note1=='a')&&(note2=='d')&&(note3=='u')&&(note4=='a')&&(note5=='d')&&(note6=='u')){
+  }
+
+  int playSongOfStorms(){
       //play correct sound effect
       correctSong();
       delay(500);
-      
+
       //play song
-      tone(11, _D4);
-      delay(250);
-      tone(11, _F4);
-      delay(125);
-      tone(11, _D5);
-      delay(625);
-      tone(11, _D4);
-      delay(250);
-      tone(11, _F4);
-      delay(125);
-      tone(11, _D5);
-      delay(625);
-      tone(11, _E5);
-      delay(500);
-      tone(11, _F5);
-      delay(125);
-      tone(11, _E5);
-      delay(125);
-      tone(11, _F5);
-      delay(125);
-      tone(11, _E5);
-      delay(125);
-      tone(11, _C5);
-      delay(125);
-      tone(11, _A4);
-      delay(625);
-      noTone(11);
-      tone(11, _A4);
-      delay(250);
-      tone(11, _D4);
-      delay(250);
-      tone(11, _F4);
-      delay(125);
-      tone(11, _G4);
-      delay(125);
-      tone(11, _A4);
-      delay(625);
-      noTone(11);
-      tone(11, _A4);
-      delay(250);
-      tone(11, _D4);
-      delay(375);
-      tone(11, _F4);
-      delay(125);
-      tone(11, _G4);
-      delay(250);
+      int songOfStromArray[] = {_D4, _F4, _D5, _D4, _F4, _D5, _E5, _F5, _E5, _F5, _E5, _C5, _A4, _A4, _D4, _F4, _G4, _A4, _A4, _D4, _F4, _G4};
+      int songOfStormDelay[] = {250, 125, 600, 250, 125, 600, 500, 125, 125, 125, 125, 125, 625, 250, 250, 125, 125, 625, 250, 375, 125, 250};
+      for(int i = 0;i < sizeof(songOfStromArray);i++){
+          tone(11, songOfStromArray[i]);
+          delay(songOfStormDelay[i]);
+          if(i == 12 || i == 17){
+            noTone(11);
+          }
+      }
       tone(11, _E4,750);
       delay(750);
+  }
+
+  int playSongOfTime(){
+      //play correct sound effect
+      correctSong();
+      delay(500);
+
+      //play song
+      int songOfTimeArray[] = {_A4, _D4, _F4, _A4, _D4, _F4, _A4, _C5, _B4, _G4, _F4, _G4, _A4, _D4, _C4, _E4};
+      int songOfTimeDelay[] = {500, 1000, 500, 500, 1000, 500, 250, 250, 500, 500, 250, 250, 500, 500, 250, 250};
+      for(int i = 0;i < sizeof(songOfTimeArray);i++){
+          tone(11, songOfTimeArray[i]);
+          delay(songOfTimeDelay[i]);
+      }
+      tone(11, _D4, 750);
+      delay(750);
+  }
+
+  int playEponaSong(){
+      //play correct sound effect
+      correctSong();
+      delay(500);
+
+      //play song
+      int EponaSongArray[] = {_D5, _B4, _A4, _D5, _B4, _A4, _D5, _B4, _A4, _B4};
+      int EponaSongDelay[] = {250, 250, 1125, 250, 250, 1125, 250, 250, 625, 625};
+      for(int i = 0;i < sizeof(EponaSongArray);i++){
+          tone(11, EponaSongArray[i]);
+          delay(EponaSongDelay[i]);
+      }
+      tone(11, _A4, 750);
+      delay(750);
+  }
+
+  int songChecker(){
+    //check for Saria's Song
+    if(note1=='d' && note2=='r' && note3=='l' && note4=='d' && note5=='r' && note6=='l' ){
+      playSariaSong();
+    }
+    //check for Zelda's Lullaby
+    else if((note1=='l')&&(note2=='u')&&(note3=='r')&&(note4=='l')&&(note5=='u')&&(note6=='r')){
+      playZeldaLullaby();
+    }
+    //check for the Sun's Song
+    else if((note1=='r')&&(note2=='d')&&(note3=='u')&&(note4=='r')&&(note5=='d')&&(note6=='u')){
+      playSunSong();
+    }
+    //check for the Song of Storms
+    else if((note1=='a')&&(note2=='d')&&(note3=='u')&&(note4=='a')&&(note5=='d')&&(note6=='u')){
+      playSongOfStorms();
     }
     //check for the Song of Time
-   else if((note1=='r')&&(note2=='a')&&(note3=='d')&&(note4=='r')&&(note5=='a')&&(note6=='d')){
-      //play correct sound effect
-      correctSong();
-      delay(500);
-      
-      //play song
-      tone(11, _A4);
-      delay(500);
-      tone(11, _D4);
-      delay(1000);
-      tone(11, _F4);
-      delay(500);
-      tone(11, _A4);
-      delay(500);
-      tone(11, _D4);
-      delay(1000);
-      tone(11, _F4);
-      delay(500);
-      tone(11, _A4);
-      delay(250);
-      tone(11, _C5);
-      delay(250);
-      tone(11, _B4);
-      delay(500);
-      tone(11, _G4);
-      delay(500);
-      tone(11, _F4);
-      delay(250);
-      tone(11, _G4);
-      delay(250);
-      tone(11, _A4);
-      delay(500);
-      tone(11, _D4);
-      delay(500);
-      tone(11, _C4);
-      delay(250);
-      tone(11, _E4);
-      delay(250);
-      tone(11, _D4,750);
-      delay(750);
+    else if((note1=='r')&&(note2=='a')&&(note3=='d')&&(note4=='r')&&(note5=='a')&&(note6=='d')){
+      playSongOfStorms();
     }
     //check for Epona's Song
-   else if((note1=='u')&&(note2=='l')&&(note3=='r')&&(note4=='u')&&(note5=='l')&&(note6=='r')){
-      //play correct sound effect
-      correctSong();
-      delay(500);
-      
-      //play song
-      tone(11, _D5);
-      delay(250);
-      tone(11, _B4);
-      delay(250);
-      tone(11, _A4);
-      delay(1125);
-      tone(11, _D5);
-      delay(250);
-      tone(11, _B4);
-      delay(250);
-      tone(11, _A4);
-      delay(1125);
-      tone(11, _D5);
-      delay(250);
-      tone(11, _B4);
-      delay(250);
-      tone(11, _A4);
-      delay(625);
-      tone(11, _B4);
-      delay(625);
-      tone(11, _A4,750);
-      delay(750);
-    }else{
+    else if((note1=='u')&&(note2=='l')&&(note3=='r')&&(note4=='u')&&(note5=='l')&&(note6=='r')){
+      playEponaSong();
+    } else{
       //plays error tone if no correct song combo is played
       tone(11, _D2, 750);
       delay(500);
@@ -316,10 +191,7 @@
     isPlay6 = false;
   }
 
-
-
 void setup() {
-  
   //Speaker pin
   pinMode(2,OUTPUT);
 
@@ -329,41 +201,23 @@ void setup() {
   pinMode(12,INPUT);
   pinMode(A1,INPUT);
   pinMode(A0,INPUT);  
-}//end of setup
+}
 
 void loop() {
   //D,F,A,C,D
-  if(digitalRead(8)==LOW){
-    logic('u');
-    while(digitalRead(8)==LOW){
-      tone(11, _D5, 50);
+  int read[] = {8, 9, 12, A0, A1};
+  char logicChars[] = {'u', 'l', 'r', 'd', 'a'};
+  int tones[] = {_D5, _B4, _A4, _F4, _D4};
+  for (int i = 0;i < 5;i++){
+    if(digitalRead(read[i])==LOW){
+      logic(logicChars[i]);
+      while(digitalRead(read[i])==LOW){
+        tone(11, tones[i], 50);
+      }
     }
   }
-  if(digitalRead(9)==LOW){
-    logic('l');
-    while(digitalRead(9)==LOW){
-      tone(11, _B4, 50);
-    }
-  }
-  if(digitalRead(12)==LOW){
-    logic('r');
-    while(digitalRead(12)==LOW){
-      tone(11, _A4, 50);
-    }
-  }
-  if(digitalRead(A1)==LOW){
-    logic('d');
-    while(digitalRead(A1)==LOW){
-      tone(11, _F4, 50);
-    }
-  }
-  if(digitalRead(A0)==LOW ){
-    logic('a');
-    while(digitalRead(A0)==LOW){
-      tone(11, _D4, 50);
-    }
-  }
+
   if(isPlay6){
-  songChecker();
+    songChecker();
   }
-}//end of loop
+}
