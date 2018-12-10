@@ -7,3 +7,5 @@ with the DFRobot Input Shield for Arduino Uno and a Gravity interface Speaker in
 
 2. Temperature Index Trigger- This code is used in both SCARF and Liquid Cooling Device, simply change the threshold for
 activation and it can be used in either one.
+
+3.Holiday Song Player- Light up some LEDs to the tunes of the holidays! The Holiday Song Player plays classic Christmas songs from a piezo buzzer and syncs them with LED decorative lights. Each note corresponds to a different LED. This creates a nice visual effect where every time a note is played, a specific light turns on. The three songs can be selected by pressing different buttons or you can play in free play mode with the other buttons.
