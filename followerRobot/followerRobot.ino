@@ -1,11 +1,12 @@
-//www.elegoo.com
 
 #include <Servo.h>  //servo library
 Servo myservo;      // create servo object to control servo
 
+//Ultrasonic sensor variables
 int Echo = A4;  
 int Trig = A5; 
 
+//motor controller pins
 #define ENA 5
 #define ENB 6
 #define IN1 7
@@ -35,34 +36,31 @@ void back() {
   digitalWrite(IN4, LOW);
   Serial.println("Back");
 }
-
 void left() {
   analogWrite(ENA, carSpeed);
   analogWrite(ENB, carSpeed);
-  digitalWrite(IN1, LOW);//was low
+  digitalWrite(IN1, LOW);
   digitalWrite(IN2, HIGH);
-  digitalWrite(IN3, LOW);//was low
+  digitalWrite(IN3, LOW);
   digitalWrite(IN4, HIGH); 
   Serial.println("Left");
 }
-
 void right() {
   analogWrite(ENA, carSpeed);
   analogWrite(ENB, carSpeed);
   digitalWrite(IN1, HIGH);
-  digitalWrite(IN2, LOW);//was low
+  digitalWrite(IN2, LOW);
   digitalWrite(IN3, HIGH);
-  digitalWrite(IN4, LOW);// was low
+  digitalWrite(IN4, LOW);
   Serial.println("Right");
 }
-
 void stop() {
   digitalWrite(ENA, LOW);
   digitalWrite(ENB, LOW);
   Serial.println("Stop!");
 } 
 
-//Ultrasonic distance measurement Sub function
+//Ultrasonic distance measurement method
 int Distance_test() {
   digitalWrite(Trig, LOW);   
   delayMicroseconds(2);
@@ -89,15 +87,19 @@ void setup() {
 } 
 
 void loop() { 
+  
     myservo.write(60);  //setservo position to right side
     delay(200); 
     rightDistance = Distance_test();
-    //myservo.write(90);  //setservo position to center
-    //delay(1000);
-    //middleDistance = Distance_test();
+    /*
+    myservo.write(90);  //setservo position to center
+    delay(1000);
+    middleDistance = Distance_test();
+    */
     myservo.write(120);  //setservo position to left side
     delay(200); 
     leftDistance = Distance_test();
+
 
     if((rightDistance > 70)&&(leftDistance > 70)){
       stop();
@@ -115,4 +117,5 @@ void loop() {
     }else{
       stop();
     }
+    
 }                    
