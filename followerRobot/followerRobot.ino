@@ -15,7 +15,7 @@ int Trig = A5;
 #define IN4 11
 #define carSpeed 150
 #define carSpeed2 150
-int rightDistance = 0, leftDistance = 0, middleDistance = 0;
+int rightDistance = 0, leftDistance = 0;
 
 void forward(){ 
   analogWrite(ENA, carSpeed);
@@ -91,11 +91,7 @@ void loop() {
     myservo.write(60);  //setservo position to right side
     delay(200); 
     rightDistance = Distance_test();
-    /*
-    myservo.write(90);  //setservo position to center
-    delay(1000);
-    middleDistance = Distance_test();
-    */
+
     myservo.write(120);  //setservo position to left side
     delay(200); 
     leftDistance = Distance_test();
@@ -107,13 +103,13 @@ void loop() {
       forward();
     }else if((rightDistance <= 10) && (leftDistance <= 10)) {
         back();
-        delay(100);//was 180
+        delay(100);
     }else if(rightDistance - 3 > leftDistance) {
         left();
-        delay(100);//was 360
+        delay(100);
     }else if(rightDistance + 3 < leftDistance) {
         right();
-        delay(100);//was 360
+        delay(100);
     }else{
       stop();
     }
