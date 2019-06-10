@@ -37,8 +37,8 @@ void back() {
   Serial.println("Back");
 }
 void left() {
-  analogWrite(ENA, carSpeed);
-  analogWrite(ENB, carSpeed);
+  analogWrite(ENA, carSpeed2);
+  analogWrite(ENB, carSpeed2);
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, HIGH);
   digitalWrite(IN3, LOW);
@@ -46,8 +46,8 @@ void left() {
   Serial.println("Left");
 }
 void right() {
-  analogWrite(ENA, carSpeed);
-  analogWrite(ENB, carSpeed);
+  analogWrite(ENA, carSpeed2);
+  analogWrite(ENB, carSpeed2);
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
   digitalWrite(IN3, HIGH);
